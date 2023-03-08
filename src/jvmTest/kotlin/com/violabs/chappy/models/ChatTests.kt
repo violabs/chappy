@@ -7,30 +7,50 @@ import org.junit.jupiter.api.Test
 
 class ChatTests : Wesley() {
 
+    private val roles = Chat.Message.Role.values().toList()
+
     @Test
     fun `Message#Role serializes correctly`() = test {
-        expect { "\"user\"" }
+        expect {
+            roles.map { "\"${it.toString().lowercase()}\"" }
+        }
 
-        whenever { JSON_MAPPER.encodeToString(Chat.Message.Role.serializer(), Chat.Message.Role.USER) }
+        whenever {
+            roles.map { JSON_MAPPER.encodeToString(Chat.Message.Role.serializer(), it) }
+        }
     }
 
     @Test
     fun `Message#Role deserializes correctly for uppercase`() = test {
         expect {
-            Chat.Message.Role.USER
+            roles
         }
 
-        whenever { JSON_MAPPER.decodeFromString(Chat.Message.Role.serializer(), "\"USER\"") }
+        whenever {
+            roles.decodeRoles(String::uppercase)
+        }
     }
 
     @Test
     fun `Message#Role deserializes correctly for lowercase`() = test {
         expect {
-            Chat.Message.Role.USER
+            roles
         }
 
-        whenever { JSON_MAPPER.decodeFromString(Chat.Message.Role.serializer(), "\"user\"") }
+        whenever {
+            roles.decodeRoles(String::lowercase)
+        }
     }
+
+    private fun List<Chat.Message.Role>.decodeRoles(stringTransform: (String) -> String): List<Chat.Message.Role> =
+        this
+            .asSequence()
+            .map(Chat.Message.Role::toString)
+            .map(stringTransform)
+            .map { "\"$it\"" }
+            .map { JSON_MAPPER.decodeFromString(Chat.Message.Role.serializer(), it) }
+            .toList()
+
 
     @Test
     fun `Message serializes correctly`() = test {

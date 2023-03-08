@@ -13,7 +13,7 @@ object Chat {
         @Serializable
         enum class Role {
             @SerialName("system")
-            @JsonNames("system")
+            @JsonNames("SYSTEM")
             @OptIn(ExperimentalSerializationApi::class)
             SYSTEM,
 
