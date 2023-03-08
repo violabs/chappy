@@ -13,12 +13,18 @@ object Chat {
         @Serializable
         enum class Role {
             @SerialName("system")
+            @JsonNames("system")
+            @OptIn(ExperimentalSerializationApi::class)
             SYSTEM,
 
             @SerialName("user")
+            @JsonNames("USER")
+            @OptIn(ExperimentalSerializationApi::class)
             USER,
 
             @SerialName("assistant")
+            @JsonNames("ASSISTANT")
+            @OptIn(ExperimentalSerializationApi::class)
             ASSISTANT;
 
             override fun toString(): String = name.lowercase()

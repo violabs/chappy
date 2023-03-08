@@ -8,6 +8,31 @@ import org.junit.jupiter.api.Test
 class ChatTests : Wesley() {
 
     @Test
+    fun `Message#Role serializes correctly`() = test {
+        expect { "\"user\"" }
+
+        whenever { JSON_MAPPER.encodeToString(Chat.Message.Role.serializer(), Chat.Message.Role.USER) }
+    }
+
+    @Test
+    fun `Message#Role deserializes correctly for uppercase`() = test {
+        expect {
+            Chat.Message.Role.USER
+        }
+
+        whenever { JSON_MAPPER.decodeFromString(Chat.Message.Role.serializer(), "\"USER\"") }
+    }
+
+    @Test
+    fun `Message#Role deserializes correctly for lowercase`() = test {
+        expect {
+            Chat.Message.Role.USER
+        }
+
+        whenever { JSON_MAPPER.decodeFromString(Chat.Message.Role.serializer(), "\"user\"") }
+    }
+
+    @Test
     fun `Message serializes correctly`() = test {
         expect {
             """
