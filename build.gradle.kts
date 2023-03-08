@@ -1,10 +1,11 @@
 plugins {
     kotlin("multiplatform") version "1.8.0"
     kotlin("plugin.serialization") version "1.8.10"
+    id("maven-publish")
 }
 
 group = "com.violabs"
-version = "1.0-SNAPSHOT"
+version = "1.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
