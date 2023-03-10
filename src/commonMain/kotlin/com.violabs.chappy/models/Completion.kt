@@ -12,41 +12,45 @@ object Completion {
     @Serializable
     data class Request @OptIn(ExperimentalSerializationApi::class) constructor(
         val prompt: String? = null,
-        val model: String = CODE_DAVINCI,
-        val temperature: Double = 0.0,
+        override val model: String = CODE_DAVINCI,
+        override val temperature: Double = 0.0,
         @SerialName("max_tokens")
         @JsonNames("maxTokens")
-        val maxTokens: Int = 2,
+        override val maxTokens: Int = 2,
         @SerialName("top_p")
         @JsonNames("topP")
-        val topP: Double = 1.0,
+        override val topP: Double = 1.0,
         @SerialName("n")
         @JsonNames("numberOfChoices")
-        val numberOfChoices: Int? = null,
-        val stream: Boolean = false,
+        override val numberOfChoices: Int? = null,
+        override val stream: Boolean = false,
         val logprobs: Int? = null,
         val stop: String? = null
-    )
+    ) : OpenAi.Request<String?> () {
+        override fun content(): String? = prompt
+    }
 
 
     @Serializable
     data class Response @OptIn(ExperimentalSerializationApi::class) constructor(
-        val id: String? = null,
+        override val id: String? = null,
         @JsonNames("object")
-        var objectType: String? = null,
-        var model: String? = null,
-        val created: Long? = null,
-        val choices: Set<Choice>? = null,
-        val usage: OpenAi.Usage? = null
-    )
+        override val objectType: String? = null,
+        override val model: String? = null,
+        override val created: Long? = null,
+        override val choices: Set<Choice>? = null,
+        override val usage: OpenAi.Usage? = null
+    ) : OpenAi.Response<String?, Choice>()
 
 
     @Serializable
     data class Choice @OptIn(ExperimentalSerializationApi::class) constructor(
         val text: String? = null,
-        val index: Int? = null,
+        override val index: Int? = null,
         val logprobs: Int? = null,
         @JsonNames("finish_reason")
-        var finishReason: String? = null
-    )
+        override var finishReason: String? = null
+    ) : OpenAi.Choice<String?>() {
+        override fun content(): String? = text
+    }
 }
