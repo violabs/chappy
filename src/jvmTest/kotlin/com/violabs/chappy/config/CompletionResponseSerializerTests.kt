@@ -61,7 +61,7 @@ class CompletionResponseSerializerTests : Wesley() {
             }
             """.trimIndent()
 
-            TestJson.decodeFromString(OpenAiResponseSerializer, response)
+            TestJson.decodeFromString(OpenAiResponseSerializer(), response)
         }
     }
 
@@ -70,7 +70,7 @@ class CompletionResponseSerializerTests : Wesley() {
         expect { fullResponse }
 
         whenever {
-            TestJson.decodeFromString(OpenAiResponseSerializer, fullResponseString)
+            TestJson.decodeFromString(OpenAiResponseSerializer(), fullResponseString)
         }
     }
 
@@ -92,7 +92,7 @@ class CompletionResponseSerializerTests : Wesley() {
         whenever {
             val response = Completion.Response(objectType = "text_completion")
 
-            TestJson.encodeToString(OpenAiResponseSerializer, response)
+            TestJson.encodeToString(OpenAiResponseSerializer(), response)
         }
     }
 
@@ -103,7 +103,7 @@ class CompletionResponseSerializerTests : Wesley() {
         }
 
         whenever {
-            TestJson.encodeToString(OpenAiResponseSerializer, fullResponse).trimWhiteSpaces()
+            TestJson.encodeToString(OpenAiResponseSerializer(), fullResponse).trimWhiteSpaces()
         }
     }
 }

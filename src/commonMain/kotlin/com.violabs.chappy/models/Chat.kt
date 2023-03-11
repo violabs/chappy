@@ -5,8 +5,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonNames
 
-const val GPT_3_5_TURBO = "gpt-3.5-turbo"
-
 object Chat {
     @Serializable
     data class Message(val content: String? = null, val role: Role = Role.USER) {
@@ -39,7 +37,7 @@ object Chat {
     @Serializable
     data class Request @OptIn(ExperimentalSerializationApi::class) constructor(
         val messages: List<Message>? = null,
-        override val model: String = GPT_3_5_TURBO,
+        override val model: String = OpenAi.Models.GPT_3_5_TURBO,
         override val temperature: Double = 0.0,
         @SerialName("max_tokens")
         @JsonNames("maxTokens")

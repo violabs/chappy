@@ -5,14 +5,12 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonNames
 
-const val CODE_DAVINCI = "code-davinci-002"
-
 object Completion {
     //https://platform.openai.com/docs/api-reference/completions/create
     @Serializable
     data class Request @OptIn(ExperimentalSerializationApi::class) constructor(
         val prompt: String? = null,
-        override val model: String = CODE_DAVINCI,
+        override val model: String = OpenAi.Models.CODE_DAVINCI_002,
         override val temperature: Double = 0.0,
         @SerialName("max_tokens")
         @JsonNames("maxTokens")

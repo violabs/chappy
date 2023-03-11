@@ -4,7 +4,7 @@ import com.violabs.wesly.Wesley
 import kotlinx.serialization.SerializationException
 import org.junit.jupiter.api.Test
 
-class OpenAiResponseSerializer2Test : Wesley() {
+class OpenAiResponseSerializerTest : Wesley() {
 
     @Test
     fun `does not deserialize item missing objectType`() = testThrows<SerializationException> {
@@ -14,7 +14,7 @@ class OpenAiResponseSerializer2Test : Wesley() {
             }
         """.trimIndent()
 
-        TestJson.decodeFromString(OpenAiResponseSerializer, response)
+        TestJson.decodeFromString(OpenAiResponseSerializer(), response)
     }
 
     @Test
@@ -25,7 +25,7 @@ class OpenAiResponseSerializer2Test : Wesley() {
             }
         """.trimIndent()
 
-        TestJson.decodeFromString(OpenAiResponseSerializer, response)
+        TestJson.decodeFromString(OpenAiResponseSerializer(), response)
     }
 
 }

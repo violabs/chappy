@@ -153,7 +153,7 @@ class ChatTests : Wesley() {
             Chat.Response(
                 "1",
                 "testing",
-                CODE_DAVINCI,
+                OpenAi.Models.CODE_DAVINCI_002,
                 123455678,
                 choices = setOf(
                     Chat.Choice(
@@ -172,7 +172,7 @@ class ChatTests : Wesley() {
                     "id": "1",
                     "object": "testing",
                     "created": 123455678,
-                    "model": "$CODE_DAVINCI"
+                    "model": "${OpenAi.Models.CODE_DAVINCI_002}"
                     "choices": [
                         {
                             "index": 1,
@@ -202,7 +202,7 @@ class ChatTests : Wesley() {
                 {
                     "id": "1",
                     "objectType": "testing",
-                    "model": "$CODE_DAVINCI",
+                    "model": "${OpenAi.Models.CODE_DAVINCI_002}",
                     "created": 123455678,
                     "choices": [
                         {
@@ -227,7 +227,7 @@ class ChatTests : Wesley() {
             val response = Chat.Response(
                 "1",
                 "testing",
-                CODE_DAVINCI,
+                OpenAi.Models.CODE_DAVINCI_002,
                 123455678,
                 choices = setOf(
                     Chat.Choice(

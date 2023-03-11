@@ -28,7 +28,7 @@ class EditTests : Wesley() {
         whenever {
             val request = Edit.Request(
                 "test",
-                CODE_DAVINCI_EDIT,
+                OpenAi.Models.CODE_DAVINCI_EDIT_001,
                 "fixit",
                 2,
                 1,
@@ -47,7 +47,7 @@ class EditTests : Wesley() {
         expect {
             Edit.Request(
                 "test",
-                CODE_DAVINCI_EDIT,
+                OpenAi.Models.CODE_DAVINCI_EDIT_001,
                 "fixit",
                 2,
                 1,
@@ -107,7 +107,7 @@ class EditTests : Wesley() {
             val response = Edit.Response(
                 "test",
                 "edit",
-                CODE_DAVINCI_EDIT,
+                OpenAi.Models.CODE_DAVINCI_EDIT_001,
                 1,
                 setOf(
                     Edit.Choice(
@@ -134,7 +134,7 @@ class EditTests : Wesley() {
             Edit.Response(
                 "test",
                 "edit",
-                CODE_DAVINCI_EDIT,
+                OpenAi.Models.CODE_DAVINCI_EDIT_001,
                 1,
                 setOf(
                     Edit.Choice(

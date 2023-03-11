@@ -61,7 +61,7 @@ class EditResponseSerializerTest : Wesley() {
             }
             """.trimIndent()
 
-            TestJson.decodeFromString(OpenAiResponseSerializer, response)
+            TestJson.decodeFromString(OpenAiResponseSerializer(), response)
         }
     }
 
@@ -70,7 +70,7 @@ class EditResponseSerializerTest : Wesley() {
         expect { fullResponse }
 
         whenever {
-            TestJson.decodeFromString(OpenAiResponseSerializer, fullResponseString)
+            TestJson.decodeFromString(OpenAiResponseSerializer(), fullResponseString)
         }
     }
 
@@ -90,7 +90,7 @@ class EditResponseSerializerTest : Wesley() {
         }
 
         whenever {
-            TestJson.encodeToString(OpenAiResponseSerializer, minimumResponse).trimWhiteSpaces()
+            TestJson.encodeToString(OpenAiResponseSerializer(), minimumResponse).trimWhiteSpaces()
         }
     }
 
@@ -99,7 +99,7 @@ class EditResponseSerializerTest : Wesley() {
         expect { fullResponseString.trimWhiteSpaces() }
 
         whenever {
-            TestJson.encodeToString(OpenAiResponseSerializer, fullResponse).trimWhiteSpaces()
+            TestJson.encodeToString(OpenAiResponseSerializer(), fullResponse).trimWhiteSpaces()
         }
     }
 }

@@ -12,11 +12,12 @@ fun ChappyJson(builder: JsonBuilder.() -> Unit): Json = Json {
     builder(this)
 
     serializersModule = SerializersModule {
-        contextual(OpenAi.Response::class, OpenAiResponseSerializer)
+        contextual(OpenAi.Response::class, OpenAiResponseSerializer())
         polymorphic(OpenAi.Response::class) {
             subclass(Chat.Response::class, Chat.Response.serializer())
             subclass(Completion.Response::class, Completion.Response.serializer())
         }
+        contextual(OpenAi.Request::class, OpenAiRequestSerializer())
         polymorphic(OpenAi.Request::class) {
             subclass(Chat.Request::class, Chat.Request.serializer())
             subclass(Completion.Request::class, Completion.Request.serializer())

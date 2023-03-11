@@ -62,4 +62,10 @@ object OpenAi {
 
         abstract fun content(): T?
     }
+
+    object Models {
+        const val GPT_3_5_TURBO = "gpt-3.5-turbo"
+        const val CODE_DAVINCI_002 = "code-davinci-002"
+        const val CODE_DAVINCI_EDIT_001 = "code-davinci-edit-001"
+    }
 }

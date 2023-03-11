@@ -5,13 +5,11 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonNames
 
-const val CODE_DAVINCI_EDIT = "code-davinci-edit-001"
-
 object Edit {
     @Serializable
     data class Request @OptIn(ExperimentalSerializationApi::class) constructor(
         val input: String? = null,
-        override val model: String = CODE_DAVINCI_EDIT,
+        override val model: String = OpenAi.Models.CODE_DAVINCI_EDIT_001,
         val instruction: String? = null,
         @SerialName("max_tokens")
         @JsonNames("maxTokens")

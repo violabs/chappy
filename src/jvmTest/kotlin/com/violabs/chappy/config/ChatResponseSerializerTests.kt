@@ -65,7 +65,7 @@ class ChatResponseSerializerTests : Wesley() {
             }
             """.trimIndent()
 
-            TestJson.decodeFromString(OpenAiResponseSerializer, response)
+            TestJson.decodeFromString(OpenAiResponseSerializer(), response)
         }
     }
 
@@ -74,7 +74,7 @@ class ChatResponseSerializerTests : Wesley() {
         expect { fullResponse }
 
         whenever {
-            TestJson.decodeFromString(OpenAiResponseSerializer, fullResponseString)
+            TestJson.decodeFromString(OpenAiResponseSerializer(), fullResponseString)
         }
     }
 
@@ -96,7 +96,7 @@ class ChatResponseSerializerTests : Wesley() {
         whenever {
             val response = Chat.Response(objectType = "chat.completion")
 
-            TestJson.encodeToString(OpenAiResponseSerializer, response)
+            TestJson.encodeToString(OpenAiResponseSerializer(), response)
         }
     }
 
@@ -107,7 +107,7 @@ class ChatResponseSerializerTests : Wesley() {
         }
 
         whenever {
-            TestJson.encodeToString(OpenAiResponseSerializer, fullResponse).trimWhiteSpaces()
+            TestJson.encodeToString(OpenAiResponseSerializer(), fullResponse).trimWhiteSpaces()
         }
     }
 }

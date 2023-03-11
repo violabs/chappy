@@ -28,7 +28,7 @@ class CompletionTests : Wesley() {
         whenever {
             val request = Completion.Request(
                 "test",
-                CODE_DAVINCI,
+                OpenAi.Models.CODE_DAVINCI_002,
                 0.0,
                 7,
                 1.0,
@@ -46,7 +46,7 @@ class CompletionTests : Wesley() {
         expect {
             Completion.Request(
                 "test",
-                CODE_DAVINCI,
+                OpenAi.Models.CODE_DAVINCI_002,
                 0.0,
                 7,
                 1.0,
@@ -83,7 +83,7 @@ class CompletionTests : Wesley() {
             Completion.Response(
                 "1",
                 "testing",
-                CODE_DAVINCI,
+                OpenAi.Models.CODE_DAVINCI_002,
                 123455678,
                 choices = setOf(
                     Completion.Choice(
@@ -103,7 +103,7 @@ class CompletionTests : Wesley() {
                     "id": "1",
                     "object": "testing",
                     "created": 123455678,
-                    "model": "$CODE_DAVINCI"
+                    "model": "${OpenAi.Models.CODE_DAVINCI_002}"
                     "choices": [
                         {
                             "index": 1,
@@ -131,7 +131,7 @@ class CompletionTests : Wesley() {
                 {
                     "id": "1",
                     "objectType": "testing",
-                    "model": "$CODE_DAVINCI",
+                    "model": "${OpenAi.Models.CODE_DAVINCI_002}",
                     "created": 123455678,
                     "choices": [
                         {
@@ -154,7 +154,7 @@ class CompletionTests : Wesley() {
             val response = Completion.Response(
                 "1",
                 "testing",
-                CODE_DAVINCI,
+                OpenAi.Models.CODE_DAVINCI_002,
                 123455678,
                 choices = setOf(
                     Completion.Choice(
