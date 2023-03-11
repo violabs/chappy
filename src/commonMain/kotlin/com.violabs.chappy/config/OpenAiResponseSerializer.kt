@@ -2,6 +2,7 @@ package com.violabs.chappy.config
 
 import com.violabs.chappy.models.Chat
 import com.violabs.chappy.models.Completion
+import com.violabs.chappy.models.Edit
 import com.violabs.chappy.models.OpenAi
 import kotlinx.serialization.DeserializationStrategy
 import kotlinx.serialization.SerializationException
@@ -21,6 +22,7 @@ object OpenAiResponseSerializer : JsonContentPolymorphicSerializer<OpenAi.Respon
             return when {
                 "chat" in objectDetails -> Chat.Response.serializer()
                 "text" in objectDetails -> Completion.Response.serializer()
+                "edit" in objectDetails -> Edit.Response.serializer()
                 else -> throw SerializationException(
                     "Unknown OpenAI.Response type: ${element.jsonObject["object"]?.jsonPrimitive?.content}"
                 )

@@ -50,7 +50,7 @@ object Chat {
         @SerialName("n")
         @JsonNames("numberOfChoices")
         override val numberOfChoices: Int? = null,
-        override val stream: Boolean = false,
+        override val stream: Boolean = false
     ) : OpenAi.Request<List<Message>?>() {
         override fun content(): List<Message>? = messages
     }
