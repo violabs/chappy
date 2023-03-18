@@ -109,7 +109,7 @@ class EditTests : Wesley() {
                 "edit",
                 OpenAi.Models.CODE_DAVINCI_EDIT_001,
                 1,
-                setOf(
+                listOf(
                     Edit.Choice(
                         "test",
                         1,
@@ -136,7 +136,7 @@ class EditTests : Wesley() {
                 "edit",
                 OpenAi.Models.CODE_DAVINCI_EDIT_001,
                 1,
-                setOf(
+                listOf(
                     Edit.Choice(
                         "test",
                         1,

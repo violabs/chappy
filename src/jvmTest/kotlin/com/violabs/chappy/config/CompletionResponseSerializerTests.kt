@@ -13,7 +13,7 @@ class CompletionResponseSerializerTests : Wesley() {
         objectType = "text_completion",
         model = "code-davinci-02",
         created = 1620920000,
-        choices = setOf(
+        choices = listOf(
             Completion.Choice(
                 text = "Do I understand you right? Your body is a melody?",
                 index = 0,

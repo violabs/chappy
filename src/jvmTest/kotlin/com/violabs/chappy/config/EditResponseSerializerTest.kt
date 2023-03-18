@@ -13,7 +13,7 @@ class EditResponseSerializerTest : Wesley() {
         objectType = "edit",
         model = "code-davinci-edit-001",
         created = 1620920000,
-        choices = setOf(
+        choices = listOf(
             Edit.Choice(
                 text = "Do I understand you right? Your body is a melody?",
                 index = 0,
