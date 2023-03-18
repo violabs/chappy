@@ -155,7 +155,7 @@ class ChatTests : Wesley() {
                 "testing",
                 OpenAi.Models.CODE_DAVINCI_002,
                 123455678,
-                choices = setOf(
+                choices = listOf(
                     Chat.Choice(
                         1,
                         Chat.Message("Hello"),
@@ -229,7 +229,7 @@ class ChatTests : Wesley() {
                 "testing",
                 OpenAi.Models.CODE_DAVINCI_002,
                 123455678,
-                choices = setOf(
+                choices = listOf(
                     Chat.Choice(
                         1,
                         Chat.Message("Hello"),

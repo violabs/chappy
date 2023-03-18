@@ -85,7 +85,7 @@ class CompletionTests : Wesley() {
                 "testing",
                 OpenAi.Models.CODE_DAVINCI_002,
                 123455678,
-                choices = setOf(
+                choices = listOf(
                     Completion.Choice(
                         "Hello",
                         1,
@@ -156,7 +156,7 @@ class CompletionTests : Wesley() {
                 "testing",
                 OpenAi.Models.CODE_DAVINCI_002,
                 123455678,
-                choices = setOf(
+                choices = listOf(
                     Completion.Choice(
                         "Hello",
                         1,

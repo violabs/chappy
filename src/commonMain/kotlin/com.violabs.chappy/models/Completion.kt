@@ -36,7 +36,7 @@ object Completion {
         override val objectType: String? = null,
         override val model: String? = null,
         override val created: Long? = null,
-        override val choices: Set<Choice>? = null,
+        override val choices: List<Choice>? = null,
         override val usage: OpenAi.Usage? = null
     ) : OpenAi.Response<String?, Choice>()
 

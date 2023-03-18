@@ -51,7 +51,7 @@ object OpenAi {
         abstract val objectType: String?
         abstract val model: String?
         abstract val created: Long?
-        abstract val choices: Set<T>?
+        abstract val choices: List<T>?
         abstract val usage: Usage?
     }
 

@@ -13,7 +13,7 @@ class ChatResponseSerializerTests : Wesley() {
         objectType = "chat.completion",
         model = "gpt-3.5-turbo",
         created = 1620920000,
-        choices = setOf(
+        choices = listOf(
             Chat.Choice(
                 message = Chat.Message(
                     "Do I understand you right? Your body is a melody?",
